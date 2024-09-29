@@ -1,7 +1,17 @@
 from idlelib.configdialog import font_sample_text
 
 import streamlit as st
+import pandas as pd
+
+
+
+def app_thumbnail():
+    print("pass")
+
+df  = pd.read_csv("data.csv", sep=";")
 st.set_page_config(layout='wide')
+
+
 
 col1, col2  = st.columns(2) # returns to instances of columns
 
@@ -27,3 +37,20 @@ It would be great to connect! I also enjoy growing my network - so please feel f
     """
     st.info(content)
 st.write("Below you can find some of the apps I have built in Python. Feel Free to contact me!")
+
+col3, col4 = st.columns(2)
+
+with col3:
+    for index, row in df[:10].iterrows():
+        st.header(row["title"])
+        st.info(row["description"])
+        st.image(f"images/{row["image"]}")
+        st.write(row["url"])
+
+with col4:
+    for index, row in df[10:].iterrows():
+        st.header(row["title"])
+        st.write(row["description"])
+        st.image(f"images/{row["image"]}")
+        st.write(row["url"])
+
