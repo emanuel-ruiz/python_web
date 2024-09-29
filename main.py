@@ -38,19 +38,19 @@ It would be great to connect! I also enjoy growing my network - so please feel f
     st.info(content)
 st.write("Below you can find some of the apps I have built in Python. Feel Free to contact me!")
 
-col3, col4 = st.columns(2)
+col3, colE, col4 = st.columns([1.5, .5, 1.5]) #pass in a list of the width ration for all columns
 
 with col3:
     for index, row in df[:10].iterrows():
         st.header(row["title"])
         st.info(row["description"])
         st.image(f"images/{row["image"]}")
-        st.write(row["url"])
+        st.write(f"[Source Code]({row["url"]})")
 
 with col4:
     for index, row in df[10:].iterrows():
         st.header(row["title"])
         st.write(row["description"])
         st.image(f"images/{row["image"]}")
-        st.write(row["url"])
+        st.write(f"[Source Code]({row["url"]})")
 
