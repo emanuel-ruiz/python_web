@@ -1,10 +1,13 @@
+from idlelib.configdialog import font_sample_text
+
 import streamlit as st
 st.set_page_config(layout='wide')
 
 col1, col2  = st.columns(2) # returns to instances of columns
 
 with col1:
-    st.image("images/Photo.jpg", width=300)
+    st.image("images/Photo.jpg", width=500)
+
 
 with col2:
     st.title("Emanuel Ruiz")
@@ -23,3 +26,4 @@ SKILLS
 It would be great to connect! I also enjoy growing my network - so please feel free to reach out anytime
     """
     st.info(content)
+st.write("Below you can find some of the apps I have built in Python. Feel Free to contact me!")
